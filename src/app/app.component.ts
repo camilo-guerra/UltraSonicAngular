@@ -7,9 +7,9 @@ import {Observable} from 'rxjs/Rx';
   selector: 'my-app',
   template: `<h1>Datos Obtenidos con un UltraSonic Ranger sensor</h1>
   <h2>Medidas</h2>
-
+{{edison.id}}
   <ul>
-    <li *ngFor="let medida of edison.results">{{medida.value}} cm </li>
+    <li *ngFor="let medida of edison.data.results">{{medida.value}} cm </li>
   </ul>`,
 })
 
@@ -22,11 +22,14 @@ export class AppComponent  {
 ngOnInit() {
   this.getEdison();
 }
-  public edison;
+  edison={
+    id:'12',
+    data:''
+  };
 getEdison() {
   this._ubidotsService.getEdison().subscribe(
     // the first argument is a function which runs on success
-    data => { this.edison = data},
+    data => { this.edison.data = data },
     // the second argument is a function which runs on error
     err => console.error(err),
     // the third argument is a function which runs on completion
