@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import {UbidotsService} from './ubidots.service';
 import 'rxjs/add/operator/map'
 import {Observable} from 'rxjs/Rx';
-
+import { Edison } from './edison';
 @Component({
   selector: 'my-app',
   template: `<h1>Datos Obtenidos con un UltraSonic Ranger sensor</h1>
@@ -19,9 +19,20 @@ export class AppComponent  {
 
   constructor(private _ubidotsService: UbidotsService){ }
 
+
+changeDetectorRefs:ChangeDetectorRef[] = [];
 ngOnInit() {
   this.getEdison();
 }
+constructor(private zone: NgZone) {
+    this.zone.onTurnDone
+      .subscribe(() => this.zone.run(() => this.tick());
+  }
+
+  tick() {
+    this.changeDetectorRefs
+      .forEach((ref) => ref.detectChanges());
+  }
   edison={
     id:'12',
     data:''
@@ -36,4 +47,5 @@ getEdison() {
     () => console.log('Se obtiene correctamente los datos de ubidots')
   );
 }
+
 }
