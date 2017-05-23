@@ -12,10 +12,12 @@ import 'rxjs/add/operator/map'
   </header>
   <section>
   <ul class="Medidas">
-    <li *ngFor="let medida of edison.data.results" >  <span class=""> {{medida.value}} cm </span>   </li>
+    <li *ngFor="let medida of edison.data.results | slice:0:20" class="mvalor">  <span > {{medida.value}} cm </span>   </li>
   </ul>
   </section>
 </div>
+
+
   `,
 })
 
