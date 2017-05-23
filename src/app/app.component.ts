@@ -1,16 +1,22 @@
 import { Component } from '@angular/core';
 import {UbidotsService} from './ubidots.service';
 import 'rxjs/add/operator/map'
-import {Observable} from 'rxjs/Rx';
-import { Edison } from './edison';
+
+
 @Component({
   selector: 'my-app',
-  template: `<h1>Datos Obtenidos con un UltraSonic Ranger sensor</h1>
-  <h2>Medidas</h2>
-{{edison.id}}
-  <ul>
-    <li *ngFor="let medida of edison.data.results">{{medida.value}} cm </li>
-  </ul>`,
+  template: `
+  <div class="Medida">
+  <header>
+    <h1>Medidas </h1>
+  </header>
+  <section>
+  <ul class="Medidas">
+    <li *ngFor="let medida of edison.data.results; let i=index" >  <span>  {{i}} </span>  {{medida.value}} cm </li>
+  </ul>
+  </section>
+</div>
+  `,
 })
 
 
@@ -20,21 +26,13 @@ export class AppComponent  {
   constructor(private _ubidotsService: UbidotsService){ }
 
 
-changeDetectorRefs:ChangeDetectorRef[] = [];
 ngOnInit() {
   this.getEdison();
 }
-constructor(private zone: NgZone) {
-    this.zone.onTurnDone
-      .subscribe(() => this.zone.run(() => this.tick());
-  }
 
-  tick() {
-    this.changeDetectorRefs
-      .forEach((ref) => ref.detectChanges());
-  }
+
   edison={
-    id:'12',
+    id:'1',
     data:''
   };
 getEdison() {

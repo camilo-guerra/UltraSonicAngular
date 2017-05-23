@@ -1,5 +1,197 @@
-h1 {
-  color: #369;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 250%;
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:600);
+html {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-image: -moz-radial-gradient(50% 100%, ellipse cover, rgba(61, 110, 178, 0.2) 50%, rgba(28, 45, 83, 0) 100%), -moz-radial-gradient(100% 10%, ellipse cover, rgba(185, 75, 12, 0.6) 20%, rgba(72, 154, 50, 0.3) 80%), -moz-linear-gradient(left top, #475ead 1%, #ae8439 50%, #1d2541 100%);
+  background-image: -webkit-radial-gradient(50% 100%, ellipse cover, rgba(61, 110, 178, 0.2) 50%, rgba(28, 45, 83, 0) 100%), -webkit-radial-gradient(100% 10%, ellipse cover, rgba(185, 75, 12, 0.6) 20%, rgba(72, 154, 50, 0.3) 80%), -webkit-linear-gradient(left top, #475ead 1%, #ae8439 50%, #1d2541 100%);
+  background-image: radial-gradient(50% 100%, ellipse cover, rgba(61, 110, 178, 0.2) 50%, rgba(28, 45, 83, 0) 100%), radial-gradient(100% 10%, ellipse cover, rgba(185, 75, 12, 0.6) 20%, rgba(72, 154, 50, 0.3) 80%), linear-gradient(to right bottom, #475ead 1%, #ae8439 50%, #1d2541 100%);
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+a {
+  text-decoration: none;
+  color: #555;
+}
+a:hover {
+  color: #000;
+}
+
+.Medida {
+  border-radius: 5px 5px 2px 2px;
+  width: 300px;
+  margin: 50px auto 0;
+  position: relative;
+}
+.Medida:before {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 10px;
+  right: 10px;
+  background: #eeeeee;
+  display: block;
+  height: 5px;
+  z-index: -6px;
+  border-radius: 0 0 2px 2px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+.Medida:after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 5px;
+  right: 5px;
+  background: #eeeeee;
+  display: block;
+  height: 5px;
+  z-index: -5px;
+  border-radius: 0 0 2px 2px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+.Medida .icon {
+  background: url(http://s.cdpn.io/6035/task_sprite.png) no-repeat;
+  display: inline-block;
+}
+.Medida header {
+  background: linear-gradient(#b56368, #ac535b);
+  height: 40px;
+  border-radius: 5px 5px 0 0;
+  position: relative;
+  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.3), 0 0 5px rgba(0, 0, 0, 0.3);
+  border: 1px solid #6f212f;
+  border-bottom: 2px solid #6f212f;
+  text-align: center;
+}
+.Medida h1 {
+  font-family: ReklameScript-RegularDEMO;
+  color: #fad2d4;
+  text-shadow: 0 0 4px rgba(111, 33, 46, 0.75), -1px -1px 1px rgba(255, 255, 255, 0.1);
+  font-weight: 300;
+  display: inline-block;
+  margin: 5px 0 0;
+  padding: 0;
+  font-size: 24px;
+}
+.Medida .btn {
+  display: inline-block;
+  border-radius: 3px;
+  background: linear-gradient(#b7676b, #ac535b);
+  border: 1px solid #6f212f;
+  padding: 4px 4px 3px;
+  margin: 7px 8px;
+  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.3), 0 2px 2px rgba(0, 0, 0, 0.15);
+  line-height: 1;
+  vertical-align: sub;
+}
+.Medida .btn:hover {
+  background: linear-gradient(#b7676b, #994a51);
+}
+.Medida .btn:active {
+  box-shadow: inset 0 2px 2px rgba(0, 0, 0, 0.1);
+  background: #863f45;
+}
+.Medida .btn-add {
+  width: 15px;
+  height: 15px;
+  background-position: -1px -1px;
+}
+.Medida .btn-trash {
+  width: 15px;
+  height: 15px;
+  background-position: -19px -2px;
+}
+.Medida section {
+  background: #f8f7f7;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  position: relative;
+  z-index: 1;
+  border-radius: 0 0 2px 2px;
+}
+.Medida section:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 35px;
+  width: 1px;
+  background: rgba(224, 13, 48, 0.1);
+  z-index: 2;
+}
+.Medida section ul {
+  position: relative;
+  margin: 0;
+  padding: 10px 0;
+  list-style: none;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 600;
+}
+.Medida section li {
+  font-size: 13px;
+  border-top: 1px solid #ccc;
+  padding: 0 10px;
+}
+.Medida section li a {
+  line-height: 30px;
+  display: block;
+}
+.Medida section li .complete {
+  color: #999;
+  text-decoration: line-through;
+}
+.Medida section li .checkbox {
+  width: 17px;
+  height: 17px;
+  border-radius: 50%;
+  box-shadow: inset 0 1px 1px rgba(100, 100, 100, 0.5), 0 1px 1px white;
+  margin-right: 20px;
+  position: relative;
+  display: inline-block;
+  top: 5px;
+  background-image: -moz-linear-gradient(top, #cbc4c5 0%, #e2dede 100%);
+  background-image: -webkit-linear-gradient(top, #cbc4c5 0%, #e2dede 100%);
+  background-image: linear-gradient(to bottom, #cbc4c5 0%, #e2dede 100%);
+}
+.Medida section li .checked {
+  background: url(http://s.cdpn.io/6035/task_sprite.png) no-repeat -2px -21px;
+}
+.Medida section .form {
+  padding: 0 10px 10px;
+}
+.Medida section form {
+  display: inline-block;
+}
+.Medida section .add {
+  color: #333;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 600;
+  width: 230px;
+  font-size: 13px;
+}
+.Medida section .add-task {
+  width: 17px;
+  height: 17px;
+  margin-right: 20px;
+  position: relative;
+  display: inline-block;
+  top: 5px;
+  background: url(http://s.cdpn.io/6035/task_sprite.png) no-repeat -23px -21px;
+}
+
+::-webkit-input-placeholder {
+  color: #539aac;
+}
+
+:-moz-placeholder {
+  color: #539aac;
 }
