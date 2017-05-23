@@ -12,7 +12,7 @@ import 'rxjs/add/operator/map'
   </header>
   <section>
   <ul class="Medidas">
-    <li *ngFor="let medida of edison.data.results; let i=index" >  <span>  {{i}} </span>  {{medida.value}} cm </li>
+    <li *ngFor="let medida of edison.data.results" >  <span class=""> {{medida.value}} cm </span>   </li>
   </ul>
   </section>
 </div>
@@ -28,6 +28,9 @@ export class AppComponent  {
 
 ngOnInit() {
   this.getEdison();
+  setInterval(() => {
+               this.getEdison();
+             }, 1000);
 }
 
 

@@ -7,6 +7,7 @@ import 'rxjs/add/operator/map'
 @Injectable()
 export class UbidotsService {
 
+
     constructor(private http:Http) {
     }
 
